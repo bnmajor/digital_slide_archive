@@ -48,6 +48,9 @@ services:
 
       # Add additional mounts here to get access to existing files on your
       # system.  Also add them to the worker container to reduce copying.
+      # wsi-superpixel-guided-labeling plugin
+      - /opt/wsi-superpixel-guided-labeling/wsi_superpixel_guided_labeling.egg-info
+      - ../../../wsi-superpixel-guided-labeling:/opt/wsi-superpixel-guided-labeling
     depends_on:
       - mongodb
       - memcached
@@ -159,6 +162,9 @@ services:
       - ${TMPDIR:-/tmp}:${TMPDIR:-/tmp}
       # Add additional mounts here to get access to existing files on your
       # system if they have the same path as on the girder container.
+      # wsi-superpixel-guided-labeling plugin
+      - /opt/wsi-superpixel-guided-labeling/wsi_superpixel_guided_labeling.egg-info
+      - ../../../wsi-superpixel-guided-labeling:/opt/wsi-superpixel-guided-labeling
     command: /opt/digital_slide_archive/devops/dsa/start_worker.sh
     logging:
       options:
